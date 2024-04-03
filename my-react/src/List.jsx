@@ -1,14 +1,15 @@
 import { useLayoutEffect } from "react";
 
 
-function List(){
-    const fruits = [{id: 1, name: "apple", calories: 80}, 
-                    {id: 2, name: "banana", calories: 100},
-                    {id: 3, name: "ananas", calories: 95},
-                    {id: 4, name: "pie", calories: 70}, 
-                    {id: 5, name: "kiwi", calories: 65},
-                    {id: 6, name: "dates", calories: 165}, 
-                    {id: 7, name: "mango", calories: 90}];
+function List(props){
+    // const fruits = [{id: 1, name: "apple", calories: 80}, 
+    //                 {id: 2, name: "banana", calories: 100},
+    //                 {id: 3, name: "ananas", calories: 95},
+    //                 {id: 4, name: "pie", calories: 70}, 
+    //                 {id: 5, name: "kiwi", calories: 65},
+    //                 {id: 6, name: "dates", calories: 165}, 
+    //                 {id: 7, name: "mango", calories: 90}];
+
 
     // sorting method
     //fruits.sort();
@@ -28,12 +29,17 @@ function List(){
     //filter based on some criteria
     //const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
     //const highCalFruits = fruits.filter(fruit => fruit.calories >= 100);
+    const category = props.category;
 
-     const listItems = fruits.map(fruit => <li key={fruit.id}>
-                        {fruit.name} : &nbsp;
-                        <b>{fruit.calories}</b>
+    const itemList = props.items;
+    const listItems = itemList.map(item => <li key={item.id}>
+                        {item.name} : &nbsp;
+                        <b>{item.calories}</b>
                         </li>);
-    return (<ol>{listItems}</ol>);
+    return (<>
+                <h3 className="list-category">{category}</h3>
+                <ol className="list-items">{listItems}</ol>    
+            </>);
 }
 
 export default List
