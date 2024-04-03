@@ -11,14 +11,14 @@ function App() {
                   {id: 7, name: "mango", calories: 90}];
 
   const vegetables = [{id: 8, name: "spinach", calories: 80}, 
-                      {id: 9, name: "carot", calories: 30},
-                      {id: 10, name: "radish", calories: 195},
-                      {id: 11, name: "ginger", calories: 70},  
-                      {id: 12, name: "limongrass", calories: 90}];                  
+  {id: 9, name: "carot", calories: 30},
+  {id: 10, name: "radish", calories: 195},
+  {id: 11, name: "ginger", calories: 70},  
+  {id: 12, name: "limongrass", calories: 90}];                  
   return(
     <>
-      <List items={fruits} category="Fruits"/>
-      <List items={vegetables} category="Vegetables"/>
+      {fruits.length > 0? <List items={fruits} category="Fruits"/>:null}
+      {vegetables.length >0 ? <List items={vegetables} category="Vegetables"/>: null}
 
     </>
   );
